@@ -6,21 +6,21 @@ class SecurePlant:
     def __init__(self, name: str) -> None:
         """Initialise une nouvelle instance de SecurePlant."""
         self.name = name
-        self.__height = 0
-        self.__age = 0
+        self._height = 0
+        self._age = 0
 
     def get_height(self) -> int:
         """Retourne la taille actuel de la plante en cm."""
-        return self.__height
+        return self._height
 
     def get_age(self) -> int:
         """Retourne l'âge actuel de la plante en jours."""
-        return self.__age
+        return self._age
 
     def set_height(self, height: int) -> None:
         """Fonction de validation du paramètre height."""
         if height >= 0:
-            self.__height = height
+            self._height = height
             print(f"Height updated: {height}cm [OK]")
         else:
             print(f"Invalid operation attempted: height {height}cm [REJECTED]")
@@ -29,7 +29,7 @@ class SecurePlant:
     def set_age(self, age: int) -> None:
         """Fonction de validation du paramètre age."""
         if age >= 0:
-            self.__age = age
+            self._age = age
             print(f"Age updated: {age} days [OK]\n")
         else:
             print(f"Invalid operation attempted: age {age} days [REJECTED]")

@@ -10,9 +10,9 @@ class Plant:
         """
         Initialise une nouvelle instance de Plant.
         """
-        self.name = name
-        self.height = height
-        self.age = age
+        self.name: str = name
+        self.height: int = height
+        self.age: int = age
 
     def get_base_info(self) -> str:
         """Retourne les infos communes au Plant."""
@@ -28,7 +28,7 @@ class Flower(Plant):
         Initialise une nouvelle instance de fleur.
         """
         super().__init__(name, height, age)
-        self.color = color
+        self.color: int = color
 
     def bloom(self) -> None:
         """Message qui dis que la plante pousse bien."""
@@ -46,7 +46,7 @@ class Tree(Plant):
         Initialise une nouvelle instance de arbre.
         """
         super().__init__(name, height, age)
-        self.trunk_diameter = trunk_diameter
+        self.trunk_diameter: int = trunk_diameter
 
     def produce_shade(self, n: int) -> None:
         """Affiche en mettre carrés l'ombre"""
@@ -65,8 +65,8 @@ class Vegetable(Plant):
         Initialise une nouvelle instance de Vegetaux.
         """
         super().__init__(name, height, age)
-        self.harvest_season = harvest_season
-        self.nutritional_value = nutritional_value
+        self.harvest_season: str = harvest_season
+        self.nutritional_value: str = nutritional_value
 
     def display_nutritional_value(self) -> None:
         """Afficher la valeur nutritionelle du vegetaux."""

@@ -6,9 +6,9 @@ class Plant:
 
     def __init__(self, name: str, height: int, age: int) -> None:
         """Initialise une nouvelle instance de Plant."""
-        self.name = name
-        self.height = height
-        self.current_age = age
+        self.name: str = name
+        self.height: int = height
+        self.current_age: int = age
 
     def grow(self, cm: int) -> None:
         """Augmente la taille de la plante de 'cm' centimètres."""

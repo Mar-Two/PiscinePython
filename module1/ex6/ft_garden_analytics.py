@@ -5,9 +5,9 @@ class Plant:
     """Initialise une plante."""
     def __init__(self, name: str, height: int) -> None:
         """Construit l'objet."""
-        self.name = name
-        self.height = height
-        self.kind = "regular"
+        self.name: int = name
+        self.height: int = height
+        self.kind: str = "regular"
 
     def get_description(self) -> None:
         """Retourne la desription basic."""
@@ -27,8 +27,8 @@ class FloweringPlant(Plant):
                  ) -> None:
         """Construit l'objet."""
         super().__init__(name, height)
-        self.color = color
-        self.kind = "flowering"
+        self.color: str = color
+        self.kind: str = "flowering"
 
     def get_description(self) -> str:
         base = super().get_description()
@@ -45,8 +45,8 @@ class PrizeFlower(FloweringPlant):
                  point: int) -> None:
         super().__init__(name, height, color)
         """Construit l'objet."""
-        self.point = point
-        self.kind = "prize flower"
+        self.point: int = point
+        self.kind: str = "prize flower"
 
     def get_description(self) -> str:
         """Retourne la desription basic + le bonus de point."""
@@ -60,26 +60,30 @@ class PrizeFlower(FloweringPlant):
 
 class GardenManager:
     """Class qui manage et analyse un jardin."""
-    total_jardin = 0
+    total_jardin: int = 0
 
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         """Construit le jardin et compte le nombre de jardins."""
-        self.name = name
-        self.garden = []
-        self.total_gr = 0
-        self.total_plant = 0
+        self.name: str = name
+        self.gardena: list = []
+        self.gardenb: list = []
+        self.total_gr: int = 0
+        self.total_plant: int = 0
         GardenManager.total_jardin += 1
 
-    def add_plant(self, plant: any) -> None:
+    def add_plant(self, plant: any, name: str) -> None:
         """Ajoute les plantes et les comptes."""
-        self.garden.append(plant)
-        print(f"Added {plant.name} to {self.name}")
-        self.total_plant += 1
+        if name == "Alice's Garden":
+            self.gardena.append(plant)
+            print(f"Added {plant.name} to {self.name}")
+            self.total_plant += 1
+        else:
+            self.gardenb.append(plant)
 
     def growth(self) -> None:
         """Faire pousser les plantes."""
         print(f"{self.name} is helping all plants grow...")
-        for plant in self.garden:
+        for plant in self.gardena:
             plant.height += 1
             self.total_gr += 1
             print(f"{plant.name} grew 1cm")
@@ -113,7 +117,7 @@ class GardenManager:
         """Methode qui affiche les stats du jardin."""
         print("=== Alice's Garden Report ===")
         print("Plants in garden:")
-        for plant in self.garden:
+        for plant in self.gardena:
             print(f"- {plant.get_description()}")
         print("\n")
         gm_tp: int = self.total_plant
@@ -122,7 +126,7 @@ class GardenManager:
         r: int = 0
         f: int = 0
         p: int = 0
-        for plant in self.garden:
+        for plant in self.gardena:
             if plant.kind == "regular":
                 r += 1
             elif plant.kind == "flowering":
@@ -131,10 +135,11 @@ class GardenManager:
                 p += 1
         print(f"Plant types: {r} regular, {f} flowering, {p} prize flowers")
         print("\n")
-        value: bool = GardenManager.validate_height(self.garden)
+        value: bool = GardenManager.validate_height(self.gardena)
         print(f"Height validation test: {value}")
-        sc_a: int = GardenManager.GardenStats.calcul_stat(self.garden)
-        print(f"Garden scores - {self.name}: {sc_a}, Bob: 92")
+        sc_a: int = GardenManager.GardenStats.calcul_stat(self.gardena)
+        sc_b: int = GardenManager.GardenStats.calcul_stat(self.gardenb)
+        print(f"Garden scores - {self.name}: {sc_a}, Bob: {sc_b}")
         GardenManager.create_garden_network()
 
 
@@ -143,12 +148,14 @@ if __name__ == "__main__":
     oak = Plant("Oak Tree", 100)
     rose = FloweringPlant("Rose", 25, "red")
     sunflower = PrizeFlower("Sunflower", 50, "yellow", 10)
+    cactus = PrizeFlower("Cactus", 60, "green", 8)
     alice = GardenManager("Alice's Garden")
     bob = GardenManager("Bob garden's")
     print("=== Garden Management System Demo ===\n")
-    alice.add_plant(oak)
-    alice.add_plant(rose)
-    alice.add_plant(sunflower)
+    alice.add_plant(oak, "Alice's Garden")
+    alice.add_plant(rose, "Alice's Garden")
+    alice.add_plant(sunflower, "Alice's Garden")
+    alice.add_plant(cactus, "Bob garden's")
     print("\n")
     alice.growth()
     alice.affiche_stat_garden()

@@ -12,9 +12,9 @@ class Plant:
         """
         Initialise une nouvelle instance de Plant.
         """
-        self.name = name
-        self.height = height
-        self.age = age
+        self.name: str = name
+        self.height: int = height
+        self.age: int = age
 
 
 def ft_garden_data() -> None:
