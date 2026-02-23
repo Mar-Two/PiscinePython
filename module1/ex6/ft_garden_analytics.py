@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module d'heritage multiple et d'organisation de méthodes."""
 
 

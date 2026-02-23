@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module de simulation de pousse."""
 
 
@@ -30,7 +31,7 @@ def ft_plant_growth() -> None:
     first_height: int = plant.height
     print("=== Day 1 ===")
     print(plant.get_info())
-    for n in range(6):
+    for i in range(6):
         plant.grow(1)
         plant.age()
     last_height: int = plant.height

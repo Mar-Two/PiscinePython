@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def ft_garden_intro() -> None:
     """
     Affiche les détails d'une plante spécifique dans le jardin.

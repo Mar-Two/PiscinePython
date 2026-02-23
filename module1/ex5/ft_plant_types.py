@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module d'heritage de class."""
 
 
@@ -34,6 +35,9 @@ class Flower(Plant):
         """Message qui dis que la plante pousse bien."""
         print(f"{self.name} is blooming beautifully!\n")
 
+    def get_base_info(self):
+        return f"{super().get_base_info()} {self.color} color"
+
 
 class Tree(Plant):
     """Représente un arbre."""
@@ -51,6 +55,9 @@ class Tree(Plant):
     def produce_shade(self, n: int) -> None:
         """Affiche en mettre carrés l'ombre"""
         print(f"{self.name} provides {n} square meters of shade\n")
+
+    def get_base_info(self):
+        return f"{super().get_base_info()} {self.trunk_diameter}cm diameter"
 
 
 class Vegetable(Plant):
@@ -72,27 +79,30 @@ class Vegetable(Plant):
         """Afficher la valeur nutritionelle du vegetaux."""
         print(f"{self.name} is rich in {self.nutritional_value}\n")
 
+    def get_base_info(self):
+        return f"{super().get_base_info()} {self.harvest_season} harvest"
+
 
 def ft_plant_types() -> None:
     """Fonction de teste qui instancie 2 objet de chaque types."""
     print("=== Garden Plant Types ===")
     rose = Flower("Rose", 25, 30, "red")
-    print(f"{rose.get_base_info()}, {rose.color} color")
+    print(rose.get_base_info())
     rose.bloom()
     cactus = Flower("Cactus", 15, 120, "green")
-    print(f"{cactus.get_base_info()}, {cactus.color} color")
+    print(cactus.get_base_info())
     cactus.bloom()
     oak = Tree("Oak", 500, 1825, 50)
-    print(f"{oak.get_base_info()}, {oak.trunk_diameter}cm diameter")
+    print(oak.get_base_info())
     oak.produce_shade(90)
     palmier = Tree("Palmier", 600, 1400, 100)
-    print(f"{palmier.get_base_info()}, {palmier.trunk_diameter}cm diameter")
+    print(palmier.get_base_info())
     palmier.produce_shade(78)
     tomate = Vegetable("Tomate", 80, 90, "summer harvest", "Vitamine C")
-    carrot = Vegetable("Carrot", 20, 70, "autumn", "beta-carotene")
-    print(f"{tomate.get_base_info()}, {tomate.harvest_season}")
+    carrot = Vegetable("Carrot", 20, 70, "autumn harvest", "beta-carotene")
+    print(tomate.get_base_info())
     tomate.display_nutritional_value()
-    print(f"{carrot.get_base_info()}, {carrot.harvest_season}")
+    print(carrot.get_base_info())
     carrot.display_nutritional_value()
 
 

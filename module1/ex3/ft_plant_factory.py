@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module qui crée et affiche differentes plantes."""
 
 
@@ -19,9 +20,9 @@ def ft_plant_factory() -> None:
     """Crée 5 plante et affiche leurs infos."""
     garden: list[Plant] = [
         Plant("Rose", 25, 30),
-        Plant("Sunflower", 80, 45),
-        Plant("Cactus", 15, 120),
         Plant("Oak", 200, 365),
+        Plant("Cactus", 5, 90),
+        Plant("Sunflower", 80, 45),
         Plant("Fern", 15, 120)
     ]
     print("=== Plant Factory Output ===")
