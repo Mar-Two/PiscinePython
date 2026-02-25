@@ -1,5 +1,4 @@
-
-
+#!/usr/bin/env python3
 def garden_operations() -> None:
     """Teste différents types d'erreurs."""
     print("Testing ValueError...")
@@ -23,7 +22,7 @@ def garden_operations() -> None:
     print("Testing KeyError...")
     try:
         garden: dict[str, int] = {"roses": 5}
-        _ = garden["missing_plant"]
+        print(garden['missing_plant'])
     except KeyError as e:
         print(f"Caught KeyError: {e}\n")
 

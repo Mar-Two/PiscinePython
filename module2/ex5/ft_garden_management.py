@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module complet de gestion des plantes du jardin"""
 
 

@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 def check_temperature(temp_str: str) -> int | None:
     """
     Valide si une chaîne de caractères représente une température
@@ -7,22 +7,22 @@ def check_temperature(temp_str: str) -> int | None:
     try:
         n: int = int(temp_str)
         if n < 0:
-            print(f"Error: {n}°C is too cold for plants (min 0°C)")
+            print(f"Error: {n}°C is too cold for plants (min 0°C)\n")
             return None
         if n > 40:
-            print(f"Error: {n}°C is too hot for plants (max 40°C)")
+            print(f"Error: {n}°C is too hot for plants (max 40°C)\n")
             return None
-        print(f"Temperature {n}°C is perfect for plants!")
+        print(f"Temperature {n}°C is perfect for plants!\n")
         return n
 
     except ValueError:
-        print(f"Error: '{temp_str}' is not a valid number")
+        print(f"Error: '{temp_str}' is not a valid number\n")
         return None
 
 
 def test_temperature_input() -> None:
     """Function qui check plusieurs valeurs."""
-    print("=== Garden Temperature Checker ===")
+    print("=== Garden Temperature Checker ===\n")
     temp_test: list = ["25", "abc", "100", "-50"]
     for temp in temp_test:
         print(f"Testing temperature: {temp}")

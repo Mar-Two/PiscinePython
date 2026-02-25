@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module de gestion d'erreur"""
 
 
@@ -20,24 +21,24 @@ def test_plant_checks() -> None:
     print("Testing good values...")
     try:
         result: str = check_plant_health("tomate", 6, 7)
-        print(f"{result}")
+        print(f"{result}\n")
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}\n")
     print("Testing empty plant name...")
     try:
         check_plant_health("", 6, 7)
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}\n")
     print("Testing bad water level...")
     try:
         check_plant_health("carrot", 15, 7)
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}\n")
     print("Testing bad sunlight hours...")
     try:
         check_plant_health("carrot", 6, 0)
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}\n")
     print("All error raising tests completed!")
 
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Module d'heritage de class exception"""
 
 
@@ -29,23 +30,23 @@ def check_type_erreur(name: str) -> None:
 
 def test_custom_errors() -> None:
     """Lance les tests demandés dans l'exercice."""
-    print("=== Custom Garden Errors Demo ===")
+    print("=== Custom Garden Errors Demo ===\n")
 
     print("Testing PlantError...")
     try:
         raise PlantError("The tomato plant is wilting!")
     except PlantError as e:
-        print(f"Caught PlantError: {e}")
+        print(f"Caught PlantError: {e}\n")
 
     print("Testing WaterError...")
     try:
         raise WaterError("Not enough water in the tank!")
     except WaterError as e:
-        print(f"Caught WaterError: {e}")
+        print(f"Caught WaterError: {e}\n")
     print("Testing catching all garden errors...")
     check_type_erreur("plant")
     check_type_erreur("water")
-    print("All custom error types work correctly!")
+    print("\nAll custom error types work correctly!")
 
 
 if __name__ == "__main__":
