@@ -18,19 +18,22 @@ class WaterError(GardenError):
 
 
 class SunlightError(GardenError):
-    """Exception levée pour les problèmes liés au soleil"""
+    """Exception levée pour les problèmes liés au soleil."""
     pass
 
 
 class GardenManager:
-
+    """
+    Permet de gerer le jardin de façon sécuriser sans l'aide d'un humain.
+    Grace a la gestion d'erreurs personnalisées et au method.
+    """
     def __init__(self, name: str) -> None:
-        """Construit le jardin"""
+        """Construit le jardin."""
         self.name = name
         self.garden = []
 
     def add_plant(self, plant: str) -> None:
-        """Ajoute les plantes"""
+        """Ajoute les plantes."""
         try:
             if not plant:
                 raise PlantError("Plant name cannot be empty!")
@@ -49,7 +52,7 @@ class GardenManager:
             print("Closing watering system (cleanup)")
 
     def check_health(self, name: str, water: int, sun: int) -> None:
-        """Vérifie la santé et lève une erreur"""
+        """Vérifie la santé et lève une erreur."""
         if water > 10:
             raise WaterError(f"Water level {water} is too high (max 10)")
         if sun < 2:
